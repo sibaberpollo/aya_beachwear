@@ -1,0 +1,280 @@
+.main {
+  width: 100%;
+}
+
+/* Banner Section */
+.bannerSection {
+  padding: 3rem 0;
+}
+
+.bannerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.bannerItem {
+  position: relative;
+}
+
+.bannerImage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.bannerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bannerItem:hover .bannerImage img {
+  transform: scale(1.05);
+}
+
+.bannerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  width: 80%;
+}
+
+.bannerText h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.bannerText p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+/* Products Section */
+.productsSection {
+  padding: 4rem 0;
+  background: #fafafa;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Full Banner */
+.fullBanner {
+  margin: 4rem 0;
+  width: 100%;
+}
+
+.fullBannerImage {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.fullBannerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fullBannerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  width: 80%;
+  max-width: 800px;
+}
+
+.fullBannerText h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 4rem 0;
+  background: #fff;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+}
+
+.featureItem h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featureItem p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Best Sellers Section */
+.bestSellersSection {
+  padding: 4rem 0;
+}
+
+.bestSellersGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bestSellersImage {
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+
+.bestSellersImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bestSellersContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ctaBox {
+  text-align: center;
+  padding: 3rem;
+  background: #f9f9f9;
+}
+
+.ctaBox h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.ctaBox p {
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Instagram Section */
+.instagramSection {
+  padding: 4rem 0;
+  background: #fafafa;
+}
+
+.instagramTitle {
+  text-align: center;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Newsletter Section */
+.newsletterSection {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bannerGrid,
+  .bestSellersGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bannerText h3,
+  .fullBannerText h3 {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerImage,
+  .fullBannerImage {
+    height: 300px;
+  }
+
+  .bestSellersImage {
+    height: 400px;
+  }
+
+  .bannerText,
+  .fullBannerText {
+    width: 90%;
+  }
+
+  .bannerText h3,
+  .fullBannerText h3 {
+    font-size: 1.25rem;
+  }
+
+  .bannerText p {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .ctaBox {
+    padding: 2rem 1rem;
+  }
+}
