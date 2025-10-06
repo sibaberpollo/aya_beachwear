@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leo Vogaza - Demo Next.js
 
-## Getting Started
+Este es un demo de Next.js que convierte completamente el HTML original de Leo Vogaza en una aplicación Next.js funcional.
 
-First, run the development server:
+## ✅ Características
+
+- ✅ Todos los recursos externos descargados (fuentes, imágenes, patterns)
+- ✅ Todos los archivos locales (CSS, JS, imágenes) copiados
+- ✅ HTML original completamente respetado
+- ✅ Sin Turbopack (según especificaciones)
+- ✅ Configurado para usar pnpm
+- ✅ Completamente funcional
+
+## 🚀 Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏃 Desarrollo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-## Learn More
+## 🏗️ Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Estructura del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+nextjs-demo/
+├── public/
+│   ├── fonts/                    # Fuentes descargadas (Material Icons, FontAwesome, etc.)
+│   ├── images/
+│   │   ├── slideshow/           # Imágenes del slideshow
+│   │   ├── banners/             # Banners
+│   │   ├── products/            # Imágenes de productos
+│   │   └── patterns/            # Patterns de fondo
+│   ├── index_files/             # CSS, JS e imágenes locales originales
+│   ├── js/
+│   │   └── global-vars.js       # Variables globales de JavaScript
+│   └── favicon.ico
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── html/
+│   │   │       ├── header/route.ts  # API para servir header HTML
+│   │   │       ├── main/route.ts    # API para servir main HTML
+│   │   │       └── footer/route.ts  # API para servir footer HTML
+│   │   ├── globals.css          # Imports de CSS originales
+│   │   ├── layout.tsx           # Layout con metadata y scripts
+│   │   └── page.tsx             # Página principal con componentes
+│   ├── components/
+│   │   ├── Header.tsx           # Componente Header (client-side)
+│   │   ├── MainContent.tsx      # Componente Main (client-side)
+│   │   └── Footer.tsx           # Componente Footer (client-side)
+│   └── data/
+│       ├── body.html            # HTML completo original (referencia)
+│       ├── header.html          # HTML del header (541 líneas)
+│       ├── main.html            # HTML del contenido (2,761 líneas)
+│       └── footer.html          # HTML del footer (3,085 líneas)
+└── package.json                 # Configurado para pnpm sin Turbopack
+```
 
-## Deploy on Vercel
+## 📝 Recursos Descargados
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Fuentes (4 archivos)
+- MaterialIcons-Regular.woff2
+- karatone-webfont.woff2
+- fontawesome-webfont.woff2
+- fa-light-300.woff2
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Imágenes (31 archivos)
+- 3 imágenes de slideshow
+- 2 banners
+- 10 imágenes de productos
+- 14 patterns
+- 2 iconos
+
+### Archivos Locales (de index_files/)
+- CSS: load_font.css, theme-60372a53.css
+- JavaScript: bottom-b9697052.js
+- Imágenes: logos, banners, productos, blog, manufacturers, etc.
+
+## 🎨 Estilos
+
+Los estilos originales se mantienen completamente:
+- `load_font.css` - Definiciones de fuentes (Poppins, Monsieur La Doulaise)
+- `theme-60372a53.css` - Todos los estilos del tema original
+
+## 🔧 Tecnologías
+
+- Next.js 15.5.4
+- React 19.1.0
+- TypeScript 5.9.3
+- pnpm 10.17.1
+
+## 📌 Notas Importantes
+
+- El HTML original se divide en 3 componentes React (Header, MainContent, Footer)
+- Los componentes son client-side (`'use client'`) para evitar problemas de hidratación
+- El HTML se carga dinámicamente desde API routes para máxima compatibilidad
+- Variables globales de JavaScript incluidas en `/public/js/global-vars.js`
+- Todos los recursos están localizados (no hay dependencias de CDNs externos)
+- El proyecto NO usa Turbopack según especificaciones
+- Todas las rutas de recursos apuntan a `/public/`
+
+## 🔧 Arquitectura
+
+### Componentes Client-Side
+Los componentes `Header`, `MainContent` y `Footer` son client-side components que:
+1. Se marcan con `'use client'` para renderización en el cliente
+2. Usan `useEffect` para cargar HTML después del montaje
+3. Hacen fetch a las API routes para obtener el HTML
+4. Evitan problemas de hidratación al no renderizar en el servidor
+
+### API Routes
+Las rutas `/api/html/*` sirven el HTML estático desde los archivos en `src/data/`:
+- `/api/html/header` → header.html
+- `/api/html/main` → main.html
+- `/api/html/footer` → footer.html
